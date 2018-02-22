@@ -5,10 +5,10 @@ using namespace std;
 
 struct BinomialVertex
 {
-	int key;//  ключ(вес) элемента,
-	int degree;// степень узла(количество дочерних узлов данного узла).
-	BinomialVertex* child;// указатель на левого ребенка узла,
-	BinomialVertex* sibling;// указатель на правого брата узла,
+	int key;
+	int degree;
+	BinomialVertex* child;
+	BinomialVertex* sibling;
 	BinomialVertex(int _key, int _degree, BinomialVertex* _child = nullptr, BinomialVertex* _sibling = nullptr)
 	{
 		key = _key;
@@ -24,8 +24,8 @@ class BinomailHeap
 private :
 
 	BinomialVertex* MergeTrees(BinomialVertex* first, BinomialVertex* second) {
-		first->child = second;
 		second->sibling = first->child;
+		first->child = second;
 		first->degree++;
 		return first;
 	}
